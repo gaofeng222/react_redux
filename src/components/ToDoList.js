@@ -15,6 +15,14 @@ class ToDoList extends React.Component {
     onInputChange (event) {
         this.setState({ newToDo: event.target.value });
     }
+    onInputSubmit(event){
+        event.preventDefault()
+        console.log(11111)
+        this.setState((previousState)=>({
+            list: [...previousState.list, previousState.newToDo ],
+            newToDo : ''
+        }));
+    }
     render(){
         return (
             <div className="row">
@@ -23,7 +31,7 @@ class ToDoList extends React.Component {
                         <div className="panel-body">
                             <h1>My To Do List</h1>
                             <hr/>
-                            <Input value={this.state.newToDo} onChange={this.onInputChange.bind(this)}/>
+                            <Input value={this.state.newToDo} onInputChange={this.onInputChange.bind(this)} onInputSubmit = {this.onInputSubmit.bind(this)}/>
                             <List listItems={this.state.list}/>
                         </div>
                     </div>

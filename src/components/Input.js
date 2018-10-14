@@ -3,7 +3,7 @@
  */
 import React from 'react';
 
-const Input = ({onChange,value}) => {
+const Input = ({onInputSubmit,onInputChange,value}) => {
     return (
         <div>
             <form>
@@ -17,11 +17,12 @@ const Input = ({onChange,value}) => {
                         type="text"
                         className="form-control"
                         id="listItemInput"
-                        onChange = {onChange}
+                        value = {value}
+                        onChange = {onInputChange}
                         placeholder="Add new todo"
                         />
                     <button
-                         className="btn btn-primary">
+                         className="btn btn-primary" onClick={onInputSubmit}>
                             Add Item
                     </button>
                 </div>
